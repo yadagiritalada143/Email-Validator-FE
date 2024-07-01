@@ -14,7 +14,6 @@ const Scan = () => {
 
     const uploadFile = async () => {
         const data = await uploadAndScanFiles(file.files[0], file.value);
-        console.log(data);
     }
 
     return <>

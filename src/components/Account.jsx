@@ -13,7 +13,6 @@ const Account = () => {
 
     const getAndUpdateDetails = async () => {
         const data = await getUserDetails();
-        console.log(data.data);
         setFormData(data.data.user);
         setFormData((prev) => { return { ...prev, ['password']: '' } });
     }
@@ -63,7 +62,6 @@ const Account = () => {
             <div></div>
             <button type="button" className="btn btn-primary mt-3" onClick={updateUser}>Update</button>
         </div>
-
     </>
 }
 

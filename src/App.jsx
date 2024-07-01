@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const routes = createBrowserRouter([
   {
     path: "/",
-    element: <Register />,
+    element: <Login />,
   },
   {
     path: "/login",

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Img from "../assets/Sign_up.png";
 import { registerUser } from "./utils/axiosInstance";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -22,8 +21,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://www.epam.com/">
-        EPAM
+      <Link color="inherit" href="https://www.example.com/">
+        Example Application
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -36,27 +35,27 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 const Register = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const [formData, setFormData] = useState({});
-  
-    const handleChange = (event) => {
-      const { name, value } = event.target;
-      if (name == "userRole")
-        setFormData((prev) => { return { ...prev, [name]: event.target.checked == true ? "ADMIN" : "USER" } });
-      else
-        setFormData((prev) => { return { ...prev, [name]: value } });
+  const [formData, setFormData] = useState({});
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    if (name == "userRole")
+      setFormData((prev) => { return { ...prev, [name]: event.target.checked == true ? "ADMIN" : "USER" } });
+    else
+      setFormData((prev) => { return { ...prev, [name]: value } });
+  }
+
+  const register = async () => {
+    try {
+      await registerUser(formData);
+      toast.success("Registered Successfully");
+      navigate("/login");
+    } catch (error) {
+      toast.error(error.response.data.message);
     }
-  
-    const register = async () => {
-      try {
-        await registerUser(formData);
-        toast.success("Registered Successfully");
-        navigate("/login");
-      } catch (error) {
-        toast.error(error.response.data.message);
-      }
-    }
+  }
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">
@@ -75,8 +74,8 @@ const Register = () => {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="given-name"
                 name="firstName"
@@ -89,9 +88,9 @@ const Register = () => {
                 value={formData.firstName}
                 placeholder="First Name" // Optional
                 margin="normal" // To add some margin like mt-1
-            />
-              </Grid>
-              <Grid item xs={12} sm={6}>
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="family-name"
                 name="lastName"
@@ -104,9 +103,9 @@ const Register = () => {
                 value={formData.lastName}
                 placeholder="Last Name" // Optional
                 margin="normal" // To add some margin like mt-1
-            />
-              </Grid>
-              <Grid item xs={6}>
+              />
+            </Grid>
+            <Grid item xs={6}>
               <TextField
                 autoComplete="username"
                 name="userName"
@@ -119,9 +118,9 @@ const Register = () => {
                 value={formData.userName}
                 placeholder="Username" // Optional
                 margin="normal" // To add some margin like mt-1
-            />
-              </Grid>
-              <Grid item xs={6}>
+              />
+            </Grid>
+            <Grid item xs={6}>
               <TextField
                 autoComplete="tel"
                 name="mobileNumber"
@@ -134,9 +133,9 @@ const Register = () => {
                 value={formData.mobileNumber}
                 placeholder="Mobile Number" // Optional
                 margin="normal" // To add some margin like mt-3
-                />
-              </Grid>
-              <Grid item xs={12}>
+              />
+            </Grid>
+            <Grid item xs={12}>
               <TextField
                 required
                 fullWidth
@@ -149,9 +148,9 @@ const Register = () => {
                 value={formData.email}
                 placeholder="Email"
                 margin="normal" // To add some margin like mt-3
-            />
-              </Grid>
-              <Grid item xs={12}>
+              />
+            </Grid>
+            <Grid item xs={12}>
               <TextField
                 margin="normal"
                 required
@@ -164,41 +163,41 @@ const Register = () => {
                 onChange={handleChange}
                 value={formData.password}
                 placeholder="*******"
-            />
-              </Grid>
-              <Grid item xs={12}>
+              />
+            </Grid>
+            <Grid item xs={12}>
               <FormControlLabel
                 control={
-                <Checkbox
-                name="userRole"
-                color="primary"
-                onChange={handleChange}
-                />
+                  <Checkbox
+                    name="userRole"
+                    color="primary"
+                    onChange={handleChange}
+                  />
                 }
                 label="Register as Admin"
-                />
-              </Grid>
+              />
             </Grid>
-            <Button
-                type="button"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-                onClick={register}
-            >
-                Register
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="/login" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
+          </Grid>
+          <Button
+            type="button"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+            onClick={register}
+          >
+            Register
+          </Button>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <Link href="/login" variant="body2">
+                Already have an account? Sign in
+              </Link>
             </Grid>
-          </Box>
+          </Grid>
+        </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>
-    </ThemeProvider> 
+    </ThemeProvider>
   );
 }
 
