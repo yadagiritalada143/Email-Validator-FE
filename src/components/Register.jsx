@@ -37,7 +37,9 @@ const defaultTheme = createTheme();
 const Register = () => {
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    userRole: "USER"
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
