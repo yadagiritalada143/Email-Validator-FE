@@ -2,6 +2,7 @@ import './App.css'
 import React from 'react'
 import Register from './components/Register'
 import Login from './components/Login'
+import MiniDrawer from './components/outbox'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
@@ -25,6 +26,10 @@ const routes = createBrowserRouter([
   {
     path: "/home",
     element: <Dashboard />
+  },
+  {
+    path: "/outbox",
+    element: <MiniDrawer/>
   }
 ]);
 const App = () => {
