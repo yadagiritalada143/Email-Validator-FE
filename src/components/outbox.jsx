@@ -95,7 +95,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 export default function MiniDrawer() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -139,124 +139,124 @@ export default function MiniDrawer() {
         </DrawerHeader>
         <Divider />
         <List>
-            <ListItem disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
+          <ListItem disablePadding sx={{ display: 'block' }}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                   <AccountCircleIcon/>
-                </ListItemIcon>
-                <ListItemText primary={'Profile'} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-              <ListItemButton
+                <AccountCircleIcon />
+              </ListItemIcon>
+              <ListItemText primary={'Profile'} sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                   <MailIcon/>
-                </ListItemIcon>
-                <ListItemText primary={'Outbox'} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-              <ListItemButton
+                <MailIcon />
+              </ListItemIcon>
+              <ListItemText primary={'Outbox'} sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                   <AttachEmailIcon/>
-                </ListItemIcon>
-                <ListItemText primary={'Compose'} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-              <ListItemButton
+                <AttachEmailIcon />
+              </ListItemIcon>
+              <ListItemText primary={'Compose'} sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+            <ListItemButton
               onClick={logout}
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
                 sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
                 }}
               >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                   <LogoutIcon/>
-                </ListItemIcon>
-                <ListItemText primary={'Log Out'} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
+                <LogoutIcon />
+              </ListItemIcon>
+              <ListItemText primary={'Log Out'} sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
         </List>
         <Divider />
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3, justifyContent: 'center', alignItems:'end' }}>
+      <Box component="main" sx={{ flexGrow: 1, p: 3, justifyContent: 'center', alignItems: 'end' }}>
         <DrawerHeader />
         <Box
-        sx={{
-        width: 500,
-        maxWidth: '100%',
-         }}
+          sx={{
+            width: 500,
+            maxWidth: '100%',
+          }}
         >
-        <TextField fullWidth label="To" id="fullWidth" />
+          <TextField fullWidth label="To" id="fullWidth" />
         </Box>
         <Box
-        sx={{
-        width: 500,
-        maxWidth: '100%',
-        marginTop: 3
-         }}
+          sx={{
+            width: 500,
+            maxWidth: '100%',
+            marginTop: 3
+          }}
         >
-        <TextField fullWidth label="Title" id="fullWidth" />
+          <TextField fullWidth label="Title" id="fullWidth" />
         </Box>
         <Box
-        sx={{
-        width: 500,
-        maxWidth: '100%',
-        marginTop: 3
-         }}
+          sx={{
+            width: 500,
+            maxWidth: '100%',
+            marginTop: 3
+          }}
         >
-        <TextField
-          id="outlined-multiline-static"
-          label="Message"
-          multiline
-          rows={10}
-          fullWidth
-        />
+          <TextField
+            id="outlined-multiline-static"
+            label="Message"
+            multiline
+            rows={10}
+            fullWidth
+          />
         </Box>
         <Box
-        sx={{
-        width: 500,
-        maxWidth: '100%',
-        marginTop: 3
-         }}
+          sx={{
+            width: 500,
+            maxWidth: '100%',
+            marginTop: 3
+          }}
         >
           <Button variant="contained" endIcon={<SendIcon />}>Send</Button>
         </Box>

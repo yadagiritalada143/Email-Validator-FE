@@ -23,13 +23,13 @@ const routes = createBrowserRouter([
     path: "/register",
     element: <Register />
   },
-  {
-    path: "/home",
-    element: <Dashboard />
-  },
+  // {
+  //   path: "/home",
+  //   element: <Dashboard />
+  // },
   {
     path: "/outbox",
-    element: <MiniDrawer/>
+    element: <MiniDrawer />
   }
 ]);
 const App = () => {

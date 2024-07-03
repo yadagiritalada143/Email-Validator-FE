@@ -49,7 +49,7 @@ const Login = () => {
       localStorage.setItem("isAdmin", data.data.role == "ADMIN" ? "true" : "false");
       localStorage.setItem("email", formData.email);
 
-      navigate("/home");
+      navigate("/outbox");
 
       toast.success("Login Succesfully !")
     } catch (error) {
