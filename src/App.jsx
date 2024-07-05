@@ -2,11 +2,11 @@ import './App.css'
 import React from 'react'
 import Register from './components/Register'
 import Login from './components/Login'
-import MiniDrawer from './components/outbox'
+import Sidebar from './components/drawer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Dashboard from './components/Dashboard'
+//import Dashboard from './components/Dashboard'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -29,7 +29,7 @@ const routes = createBrowserRouter([
   // },
   {
     path: "/outbox",
-    element: <MiniDrawer />
+    element: <Sidebar />
   }
 ]);
 const App = () => {
