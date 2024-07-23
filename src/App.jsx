@@ -28,7 +28,7 @@ const routes = createBrowserRouter([
   //   element: <Dashboard />
   // },
   {
-    path: "/outbox",
+    path: "/emailvalidator",
     element: <Sidebar />
   }
 ]);

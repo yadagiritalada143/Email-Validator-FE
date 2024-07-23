@@ -45,6 +45,7 @@ const Profile = () => {
   useEffect(() => {
     userData();
   }, []);
+  console.log(userDetails)
   return (
     <>
     {userDetails?(
