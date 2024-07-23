@@ -1,7 +1,6 @@
 import React, { useState,useEffect } from "react";
 import { updateUserDetails, getUserDetails } from "./utils/axiosInstance";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -18,6 +17,8 @@ const defaultTheme = createTheme();
 
 const Profile = () => {
   const [userDetails, setUserDetails] = useState(null);
+  {/* value={userDetails.password} */}
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setUserDetails({
@@ -27,6 +28,7 @@ const Profile = () => {
   };
 
   const update = async () => {
+    console.log("user Details", userDetails);
     try {
       await updateUserDetails(userDetails);
       toast.success("Updated Successfully");
@@ -45,7 +47,6 @@ const Profile = () => {
   useEffect(() => {
     userData();
   }, []);
-  console.log(userDetails)
   return (
     <>
     {userDetails?(
@@ -136,6 +137,19 @@ const Profile = () => {
                   disabled
                 />
               </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  id="password"
+                  label="Password"
+                  name="password"
+                  type="email"
+                  autoComplete="pasword"
+                  onChange={handleChange}
+                  margin="normal" // To add some margin like mt-3
+                />
+              </Grid>
             </Grid>
             <Button
               type="button"
@@ -155,7 +169,6 @@ const Profile = () => {
     
   );
 }
-
 export default Profile;
 
 
